@@ -54,25 +54,40 @@
         function converti() {
             const somma = Number.parseInt(s.value);
             var valuta = v.value;
+            var simbolo = '';
             var res = 0;
             switch (valuta) {
                 case valuta = 'dollaro':
                     res = somma / 1.09;
+                    simbolo = '$';
                     break;
                 case valuta = 'yen':
                     res = somma / 127.9975;
+                    simbolo = '¥';
                     break;
                 case valuta = 'sterlina':
                     res = somma / 0.8371;
+                    simbolo = '£';
                     break;
                 case valuta = 'paypall':
                     res = somma / 0.874101;
+                    simbolo = '$';
                     break;
                 default:
 
             }
-            console.log(res);
-            //reset();
+            const ionAlert = document.createElement('ion-alert');
+            ionAlert.header = 'CONVERSION';
+            ionAlert.message = 'Il risultato di conversione di ' + somma + '€ a ' + valuta + ' è: ' + res.toFixed(2) + simbolo;
+            ionAlert.buttons = [{
+                text: 'ok',
+                role: 'cancel',
+                handler: function() {
+                    //alert('You clicked ok');
+                }
+            }]
+            document.body.appendChild(ionAlert);
+            ionAlert.present();
         }
     </script>
 </body>
