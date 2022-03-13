@@ -40,15 +40,25 @@
                 <ion-button expand="block" color="success" onclick="converti()">Converti</ion-button>
                 <ion-button expand="block" color="danger" onclick="reset()">Reset</ion-button>
             </ion-list>
+            <ion-card hidden="true">
+                <ion-card-header>
+                    <ion-card-title class="ion-text-center ion-padding">RISULTATO DI CONVERSIONE</ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="ion-text-center">
+                    <ion-note color="primary" id="convresult"></ion-note>
+                </ion-card-content>
+            </ion-card>
         </ion-content>
     </ion-app>
     <script>
         const v = document.getElementById('conv');
         const s = document.getElementById('somma');
+        const ioncard = document.querySelector('ion-card');
 
         function reset() {
             s.value = null;
             v.value = null;
+            ioncard.hidden = true;
         }
 
         function converti() {
@@ -56,6 +66,7 @@
             var valuta = v.value;
             var simbolo = '';
             var res = 0;
+            ioncard.hidden = false;
             switch (valuta) {
                 case valuta = 'dollaro':
                     res = somma / 1.09;
@@ -77,17 +88,19 @@
 
             }
             const ionAlert = document.createElement('ion-alert');
+            const convresult = document.getElementById('convresult');
+            convresult.innerText = 'Il risultato di conversione di ' + somma + '€ a ' + valuta + ' è: ' + res.toFixed(2) + simbolo;
             ionAlert.header = 'CONVERSION';
             ionAlert.message = 'Il risultato di conversione di ' + somma + '€ a ' + valuta + ' è: ' + res.toFixed(2) + simbolo;
             ionAlert.buttons = [{
-                text: 'ok',
-                role: 'cancel',
-                handler: function() {
-                    //alert('You clicked ok');
-                }
-            }]
-            document.body.appendChild(ionAlert);
-            ionAlert.present();
+                    text: 'ok',
+                    role: 'cancel',
+                    handler: function() {
+                        //alert('You clicked ok');
+                    }
+                }]
+                //document.body.appendChild(ionAlert);
+                //ionAlert.present();
         }
     </script>
 </body>
