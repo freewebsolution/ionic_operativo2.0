@@ -13,9 +13,67 @@
 
 <body>
     <ion-app>
-
+        <ion-header>
+            <ion-toolbar color="tertiary">
+                <ion-title class="ion-text-center">CONVERTER €</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item>
+                    <ion-label position="floating">Inserisci somma...(€)</ion-label>
+                    <ion-input type="number" id="somma" value="1" placeholder="Inserisci somma in Euro..."></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>
+                        <ion-icon name="shuffle-outline"></ion-icon>
+                    </ion-label>
+                    <ion-select interface="popover" class="custom-options" id="conv">
+                        <ion-select-option value="dollaro">Dollaro Americano</ion-select-option>
+                        <ion-select-option value="sterlina">Sterlina inglese</ion-select-option>
+                        <ion-select-option value="yen">Yen Giapponese</ion-select-option>
+                        <ion-select-option value="paypall">Pay Pall</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item-divider color="light" class="ion-padding">
+                </ion-item-divider>
+                <ion-button expand="block" color="success" onclick="converti()">Converti</ion-button>
+                <ion-button expand="block" color="danger" onclick="reset()">Reset</ion-button>
+            </ion-list>
+        </ion-content>
     </ion-app>
     <script>
+        const v = document.getElementById('conv');
+        const s = document.getElementById('somma');
+
+        function reset() {
+            s.value = null;
+            v.value = null;
+        }
+
+        function converti() {
+            const somma = Number.parseInt(s.value);
+            var valuta = v.value;
+            var res = 0;
+            switch (valuta) {
+                case valuta = 'dollaro':
+                    res = somma / 1.09;
+                    break;
+                case valuta = 'yen':
+                    res = somma / 127.9975;
+                    break;
+                case valuta = 'sterlina':
+                    res = somma / 0.8371;
+                    break;
+                case valuta = 'paypall':
+                    res = somma / 0.874101;
+                    break;
+                default:
+
+            }
+            console.log(res);
+            //reset();
+        }
     </script>
 </body>
 
