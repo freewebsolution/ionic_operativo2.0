@@ -1,0 +1,7 @@
+{
+  "name": "appizza",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
