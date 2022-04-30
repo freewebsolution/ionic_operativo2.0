@@ -1,9 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>home</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div class="ion-padding">
+        <div *ngIf="pizze">
+            <div *ngFor="let pizza of pizze">
+                {{pizza.titolo}}
+            </div>
+        </div>
+        <div *ngIf="insalatone">
+            <div *ngFor="let insalatona of insalatone">
+                {{insalatona.titolo}}
+            </div>
+        </div>
+        <div [hidden]='pizze || insalatone || piattiErrMsg'>
+            Caricamento in corso ...
+        </div>
+    </div>
 
 </ion-content>
