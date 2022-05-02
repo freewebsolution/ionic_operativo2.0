@@ -3,7 +3,6 @@ import { Pizza } from './../models/pizza';
 import { Insalatona } from './../models/insalatona';
 import { PizzaService } from '../services/pizza.service';
 import { InsalatonaService } from './../services/insalatona.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
