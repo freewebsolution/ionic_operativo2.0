@@ -4,14 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TabnavPageRoutingModule } from './tabnav-routing.module';
 import { TabnavPage } from './tabnav.page';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabnavPageRoutingModule,
-    FontAwesomeModule
+    TabnavPageRoutingModule
   ],
   declarations: [TabnavPage]
 })

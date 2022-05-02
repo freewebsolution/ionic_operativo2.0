@@ -1,5 +1,25 @@
-.ion-header.ion-toolbar {
-    /*toolbar*/
-    --background: var(--ion-toolbar-background, var(--ion-background-color, #d0021b));
-    --color: var(--ion-toolbar-color, var(--ion-text-color, #fff));
+/*toolbar*/
+
+ion-toolbar {
+    --background: hsl(104, 38%, 42%)!important;
+}
+
+
+/*tab-bar*/
+
+ion-tab-bar {
+    --background: hsl(104, 38%, 42%)!important;
+    --padding: 0 !important;
+}
+
+
+/*tab-button*/
+
+ion-tab-button {
+    --color: #f6f5f8;
+}
+
+ion-tab-button.tab-selected {
+    --background: hsl(142, 38%, 42%)!important;
+    --color-selected: #f6f5f8 !important;
 }

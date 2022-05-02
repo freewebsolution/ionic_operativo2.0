@@ -7,14 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { ContattiPageRoutingModule } from './contatti-routing.module';
 
 import { ContattiPage } from './contatti.page';
-
+import { ToolbarComponent } from './../shared/toolbar/toolbar.component';
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     IonicModule,
     ContattiPageRoutingModule
   ],
-  declarations: [ContattiPage]
+  declarations: [ContattiPage, ToolbarComponent]
 })
 export class ContattiPageModule {}
