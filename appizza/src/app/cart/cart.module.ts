@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CartPageRoutingModule } from './cart-routing.module';
 import { CartPage } from './cart.page';
-import { ToolbarComponent } from './../shared/toolbar/toolbar.component';
 @NgModule({
   imports: [
   CommonModule,
@@ -12,6 +11,6 @@ import { ToolbarComponent } from './../shared/toolbar/toolbar.component';
     IonicModule,
     CartPageRoutingModule
   ],
-  declarations: [CartPage, ToolbarComponent]
+  declarations: [CartPage]
 })
 export class CartPageModule {}

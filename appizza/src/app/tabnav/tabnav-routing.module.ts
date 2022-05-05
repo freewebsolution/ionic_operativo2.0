@@ -29,6 +29,14 @@ const routes: Routes = [
         loadChildren: () => import('./../preferiti/preferiti.module').then(m => m.PreferitiPageModule)
       },
       {
+        path: 'commenti',
+        loadChildren: () => import('./../commenti/commenti.module').then(m => m.CommentiPageModule)
+      },
+      {
+        path: 'contatti',
+        loadChildren: () => import('./../contatti/contatti.module').then(m => m.ContattiPageModule)
+      },
+      {
         path: 'cart',
         loadChildren: () => import('./../cart/cart.module').then(m => m.CartPageModule)
       }

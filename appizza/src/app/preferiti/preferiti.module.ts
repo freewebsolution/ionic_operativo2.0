@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { PreferitiPageRoutingModule } from './preferiti-routing.module';
 
 import { PreferitiPage } from './preferiti.page';
-import { ToolbarComponent } from './../shared/toolbar/toolbar.component';
 @NgModule({
   imports: [
   CommonModule,
@@ -15,6 +14,6 @@ import { ToolbarComponent } from './../shared/toolbar/toolbar.component';
     IonicModule,
     PreferitiPageRoutingModule
   ],
-  declarations: [PreferitiPage, ToolbarComponent]
+  declarations: [PreferitiPage]
 })
 export class PreferitiPageModule {}

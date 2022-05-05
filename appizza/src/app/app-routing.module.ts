@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'contatti',
     loadChildren: () => import('./contatti/contatti.module').then(m => m.ContattiPageModule)
+  },
+  {
+    path: 'commenti',
+    loadChildren: () => import('./commenti/commenti.module').then( m => m.CommentiPageModule)
   }
 ];
 @NgModule({

@@ -15,6 +15,6 @@ import { ToolbarComponent } from './../shared/toolbar/toolbar.component';
     IonicModule,
     ContattiPageRoutingModule
   ],
-  declarations: [ContattiPage, ToolbarComponent]
+  declarations: [ContattiPage]
 })
 export class ContattiPageModule {}

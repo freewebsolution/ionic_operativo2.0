@@ -12,6 +12,10 @@ ion-tab-bar {
     --padding: 0 !important;
 }
 
+ion-content {
+    top: 50px;
+}
+
 
 /*tab-button*/
 
@@ -26,4 +30,11 @@ ion-tab-button.tab-selected {
 
 ion-menu-button {
     --color: #fff !important;
+}
+
+
+/*font awesome*/
+
+.fa-solid.fa-star {
+    color: #ffd700;
 }

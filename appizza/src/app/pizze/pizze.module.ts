@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { PizzePageRoutingModule } from './pizze-routing.module';
 import { PizzePage } from './pizze.page';
-import { ToolbarComponent } from './../shared/toolbar/toolbar.component';
 @NgModule({
   imports: [
   CommonModule,
@@ -12,6 +11,6 @@ import { ToolbarComponent } from './../shared/toolbar/toolbar.component';
     IonicModule,
     PizzePageRoutingModule
   ],
-  declarations: [PizzePage, ToolbarComponent]
+  declarations: [PizzePage]
 })
 export class PizzePageModule {}

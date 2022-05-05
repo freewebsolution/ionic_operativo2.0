@@ -4,16 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InsalatonePageRoutingModule } from './insalatone-routing.module';
+import { CommentiPageRoutingModule } from './commenti-routing.module';
 
-import { InsalatonePage } from './insalatone.page';
+import { CommentiPage } from './commenti.page';
+
+
 @NgModule({
   imports: [
-  CommonModule,
+    CommonModule,
     FormsModule,
     IonicModule,
-    InsalatonePageRoutingModule
+    CommentiPageRoutingModule
   ],
-  declarations: [InsalatonePage]
+  declarations: [CommentiPage]
 })
-export class InsalatonePageModule {}
+export class CommentiPageModule {}

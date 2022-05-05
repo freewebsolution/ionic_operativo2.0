@@ -16,6 +16,6 @@ import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
     IonicModule,
     HomePageRoutingModule,
   ],
-  declarations: [HomePage,ToolbarComponent]
+  declarations: [HomePage]
 })
 export class HomePageModule {}
