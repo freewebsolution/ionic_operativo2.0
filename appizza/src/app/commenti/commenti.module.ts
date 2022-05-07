@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
 import { CommentiPageRoutingModule } from './commenti-routing.module';
-
 import { CommentiPage } from './commenti.page';
+import { IntoArrayPipe } from '../shared/pipe/into-array.pipe';
 
 
 @NgModule({
@@ -14,8 +13,8 @@ import { CommentiPage } from './commenti.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CommentiPageRoutingModule
+    CommentiPageRoutingModule,
   ],
-  declarations: [CommentiPage]
+  declarations: [CommentiPage, IntoArrayPipe]
 })
 export class CommentiPageModule {}

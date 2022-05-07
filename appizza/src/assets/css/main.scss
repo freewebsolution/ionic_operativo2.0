@@ -13,7 +13,11 @@ ion-tab-bar {
 }
 
 ion-content {
-    top: 50px;
+    top: 45px;
+}
+
+ion-item-divider {
+    margin: 0 0 30px;
 }
 
 
@@ -35,6 +39,6 @@ ion-menu-button {
 
 /*font awesome*/
 
-.fa-solid.fa-star {
-    color: #ffd700;
+.gold {
+    color: #e59819;
 }
