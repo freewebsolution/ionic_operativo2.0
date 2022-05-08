@@ -12,14 +12,6 @@ ion-tab-bar {
     --padding: 0 !important;
 }
 
-ion-content {
-    top: 45px;
-}
-
-ion-item-divider {
-    margin: 0 0 30px;
-}
-
 
 /*tab-button*/
 
@@ -41,4 +33,65 @@ ion-menu-button {
 
 .gold {
     color: #e59819;
+}
+
+
+/*LOADER*/
+
+.lds-hourglass {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.lds-hourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 8px;
+    box-sizing: border-box;
+    border: 32px solid hsl(142, 38%, 42%);
+    border-color: hsl(142, 38%, 42%) transparent hsl(142, 38%, 42%) transparent;
+    animation: lds-hourglass 1.2s infinite;
+}
+
+
+/*LOGO*/
+
+.ion-text-center {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #f6f5f8;
+}
+
+.logo {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5rem;
+}
+
+.rotate {
+    transform: rotate(-30deg);
+    font-size: 1.7rem;
+    color: #f6f5f8;
+    border-bottom: 2px solid #333;
+    border-top: 2px solid #f6f5f8;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+@keyframes lds-hourglass {
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+        transform: rotate(1800deg);
+    }
 }

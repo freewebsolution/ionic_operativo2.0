@@ -1,3 +1,13 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-menu-button menu="sidemenu"></ion-menu-button>
+        </ion-buttons>
+        <div class="ion-text-center">
+            Commenti
+        </div>
+    </ion-toolbar>
+</ion-header>
 <ion-content fullscreen>
     <div class="ion-padding">
         <ion-item-group *ngFor="let commento of commenti">
@@ -11,7 +21,7 @@
                       'fa-solid': i < commento.voti.rate,
                       'fa-regular': i >= commento.voti.rate
                     }">
-                    </i>
+          </i>
                     <br>
                     <p>{{commento.testo}}</p>
                     <br>
@@ -22,9 +32,8 @@
                 </ion-label>
             </ion-item-divider>
         </ion-item-group>
-
-        <div [hidden]='commenti || errMsg'>
-            Caricamento in corso ...
+        <div class="loader" [hidden]='commenti || errMsg'>
+            <div class="lds-hourglass"></div>
         </div>
     </div>
 </ion-content>

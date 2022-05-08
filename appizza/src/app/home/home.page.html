@@ -1,3 +1,14 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-menu-button menu="sidemenu"></ion-menu-button>
+        </ion-buttons>
+        <div class="ion-text-center">
+            <ion-icon name="pizza-outline" class="rotate"></ion-icon><span class="logo"><span
+          style="color: black;">the</span><span style="color:#fff">pizza</span></span>
+        </div>
+    </ion-toolbar>
+</ion-header>
 <ion-content fullscreen>
     <div class="ion-padding">
         <div *ngIf="pizze">
@@ -11,7 +22,7 @@
             </div>
         </div>
         <div [hidden]='pizze || insalatone || piattiErrMsg'>
-            Caricamento in corso ...
+            <div class="lds-hourglass"></div>
         </div>
     </div>
 </ion-content>
