@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
-import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
@@ -15,6 +15,7 @@ import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
+    SwiperModule
   ],
   declarations: [HomePage]
 })

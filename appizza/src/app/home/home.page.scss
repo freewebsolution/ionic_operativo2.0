@@ -1,0 +1,21 @@
+.swiper-container {
+    width: 100%;
+    //height: 100%;
+}
+
+// .swiper-slide {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center !important;
+//     justify-content: center !important;
+// }
+.swiper-pagination-bullet {
+    background-color: hsl(104, 38%, 42%)!important;
+    ;
+}
+
+.swiper-cube-shadow {
+    -webkit-filter: initial !important;
+    filter: initial !important;
+    display: none !important;
+}

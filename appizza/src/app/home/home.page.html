@@ -10,19 +10,15 @@
     </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
-    <div class="ion-padding">
-        <div *ngIf="pizze">
-            <div *ngFor="let pizza of pizze">
-                {{pizza.titolo}}
-            </div>
-        </div>
-        <div *ngIf="insalatone">
-            <div *ngFor="let insalatona of insalatone">
-                {{insalatona.titolo}}
-            </div>
-        </div>
-        <div [hidden]='pizze || insalatone || piattiErrMsg'>
-            <div class="lds-hourglass"></div>
-        </div>
+    <swiper #swiper [config]="config">
+        <ng-container *ngFor="let pizza of pizze; index as i">
+            <ng-template swiperSlide *ngIf="pizze[i].inevidenza">
+                <img [src]="url+pizza.img " alt=" " width="100% " height="230 "> {{pizza.titolo}}
+            </ng-template>
+        </ng-container>
+    </swiper>
+
+    <div [hidden]='insalatone || pizze || piattiErrMsg'>
+        <div class="lds-hourglass "></div>
     </div>
 </ion-content>

@@ -10,6 +10,11 @@
 </ion-header>
 <ion-content fullscreen>
     <div class="ion-padding">
+        <ion-text color="dark" class="ion-text-center commenti">
+            <div *ngFor="let count of commenti; let i = index;let last = last">
+                <p class="linee" *ngIf="last">{{i+1}} Commenti</p>
+            </div>
+        </ion-text>
         <ion-item-group *ngFor="let commento of commenti">
             <ion-item-divider>
                 <ion-label>

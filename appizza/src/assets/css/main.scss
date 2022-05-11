@@ -67,6 +67,33 @@ ion-menu-button {
     color: #f6f5f8;
 }
 
+.commenti {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #b8b6b9;
+}
+
+p.linee::before,
+p.linee::after {
+    background-color: #e1dfe1;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 33%;
+}
+
+p.linee::before {
+    right: 0.5em;
+    margin-left: -15%;
+}
+
+p.linee::after {
+    left: 0.5em;
+    margin-right: -15%;
+}
+
 .logo {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.5rem;
