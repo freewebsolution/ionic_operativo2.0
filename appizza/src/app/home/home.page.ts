@@ -5,9 +5,10 @@ import { PizzaService } from '../services/pizza.service';
 import { InsalatonaService } from './../services/insalatona.service';
 import { SwiperComponent } from 'swiper/angular';
 import { ViewEncapsulation } from '@angular/core';
-import { SwiperOptions } from 'swiper';
-import SwiperCore, { Pagination, EffectCube, EffectCoverflow,} from 'swiper';
-SwiperCore.use([Pagination, EffectCube]);
+import Swiper, { Autoplay, SwiperOptions } from 'swiper';
+import SwiperCore, { Pagination, EffectCube} from 'swiper';
+SwiperCore.use([Pagination, EffectCube, Autoplay]);
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -19,7 +20,12 @@ export class HomePage implements OnInit, AfterContentChecked {
   config: SwiperOptions = {
     slidesPerView: 'auto',
     pagination: true,
-    effect: 'cube'
+    effect: 'cube',
+    autoplay: {
+      delay:3500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
   };
 
   pizze: Pizza[];

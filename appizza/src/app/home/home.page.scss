@@ -10,7 +10,8 @@
 //     justify-content: center !important;
 // }
 .swiper-pagination-bullet {
-    background-color: hsl(104, 38%, 42%)!important;
+    //background-color: hsl(104, 38%, 42%)!important;
+    background-color: #fff !important;
     ;
 }
 
@@ -18,4 +19,44 @@
     -webkit-filter: initial !important;
     filter: initial !important;
     display: none !important;
+}
+
+.title-text {
+    position: absolute;
+    padding: 8px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2.3rem;
+    color: #f6f5f8;
+    top: 17px;
+    left: 50px;
+    background-color: red;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 45%;
+}
+
+.price-text {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2.3rem;
+    color: #f6f5f8;
+    background-color: red;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 45%;
+}
+
+.imgSwip {
+    height: 250px;
+    width: 100%;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0 !important;
 }

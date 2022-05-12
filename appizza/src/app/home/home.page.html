@@ -13,7 +13,16 @@
     <swiper #swiper [config]="config">
         <ng-container *ngFor="let pizza of pizze; index as i">
             <ng-template swiperSlide *ngIf="pizze[i].inevidenza">
-                <img [src]="url+pizza.img " alt=" " width="100% " height="230 "> {{pizza.titolo}}
+                <img class="imgSwip" [src]="url+pizza.img">
+                <h2 class="title-text">{{pizza.titolo}}</h2>
+                <h2 class="price-text">{{pizza.prezzo}} €</h2>
+            </ng-template>
+        </ng-container>
+        <ng-container *ngFor="let insalata of insalatone; index as i">
+            <ng-template swiperSlide *ngIf="insalatone[i].inevidenza">
+                <img class="imgSwip" [src]="url+insalata.img">
+                <h2 class="title-text">{{insalata.titolo}}</h2>
+                <h2 class="price-text">{{insalata.prezzo}} €</h2>
             </ng-template>
         </ng-container>
     </swiper>
