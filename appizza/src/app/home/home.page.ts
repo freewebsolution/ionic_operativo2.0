@@ -22,8 +22,8 @@ export class HomePage implements OnInit, AfterContentChecked {
     pagination: true,
     effect: 'cube',
     autoplay: {
-      delay:3500,
-      disableOnInteraction: false,
+      delay:4000,
+      disableOnInteraction: true,
       pauseOnMouseEnter: true
     },
   };

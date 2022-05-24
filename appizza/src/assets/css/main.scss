@@ -94,6 +94,39 @@ p.linee::after {
     margin-right: -15%;
 }
 
+h2.linee {
+    color: black;
+    font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+h2.linee::before,
+h2.linee::after {
+    background-color: #e1dfe1 !important;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 33%;
+    text-align: center !important;
+    font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+h2.linee::before {
+    right: 0.5em;
+    margin-left: -15%;
+}
+
+h2.linee::after {
+    left: 0.5em;
+    margin-right: -15%;
+}
+
+.border-col {
+    border: 2px solid hsl(142, 38%, 42%);
+    margin-bottom: 5px;
+}
+
 .logo {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.5rem;
