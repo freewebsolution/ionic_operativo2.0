@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { HomePageRoutingModule } from './home-routing.module';
-
 import { HomePage } from './home.page';
 import { SwiperModule } from 'swiper/angular';
+import { SumPipe } from '../shared/pipe/sum.pipe';
 
 @NgModule({
   imports: [
@@ -17,6 +17,9 @@ import { SwiperModule } from 'swiper/angular';
     HomePageRoutingModule,
     SwiperModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, SumPipe],
+  exports: [
+    SumPipe
+  ]
 })
 export class HomePageModule {}

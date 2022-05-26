@@ -7,6 +7,7 @@ import { SwiperComponent } from 'swiper/angular';
 import { ViewEncapsulation } from '@angular/core';
 import Swiper, { Autoplay, SwiperOptions } from 'swiper';
 import SwiperCore, { Pagination, EffectCube} from 'swiper';
+import { Voto } from '../models/voto';
 SwiperCore.use([Pagination, EffectCube, Autoplay]);
 
 @Component({
@@ -29,6 +30,7 @@ export class HomePage implements OnInit, AfterContentChecked {
   };
 
   pizze: Pizza[];
+  voti: Voto[]=[];
   insalatone: Insalatona[];
   piattiErrMsg: string;
   url = `http://foodapi.test`;

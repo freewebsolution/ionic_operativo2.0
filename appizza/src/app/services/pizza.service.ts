@@ -5,12 +5,12 @@ import { ErrorHttpService } from './error-http.service';
 import { apiUrl } from '../config/apiUrl';
 import { Pizza } from '../models/pizza';
 import { catchError } from 'rxjs/operators';
+import { Voto } from '../models/voto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PizzaService {
-
   constructor(private http: HttpClient, private httpError: ErrorHttpService) { }
   getPizze(): Observable<Pizza[]> {
     return this.http.get<Pizza[]>(`${apiUrl}pizze`)
