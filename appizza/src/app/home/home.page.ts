@@ -6,7 +6,7 @@ import { InsalatonaService } from './../services/insalatona.service';
 import { SwiperComponent } from 'swiper/angular';
 import { ViewEncapsulation } from '@angular/core';
 import Swiper, { Autoplay, SwiperOptions } from 'swiper';
-import SwiperCore, { Pagination, EffectCube} from 'swiper';
+import SwiperCore, { Pagination, EffectCube } from 'swiper';
 import { Voto } from '../models/voto';
 SwiperCore.use([Pagination, EffectCube, Autoplay]);
 
@@ -23,14 +23,15 @@ export class HomePage implements OnInit, AfterContentChecked {
     pagination: true,
     effect: 'cube',
     autoplay: {
-      delay:4000,
+      delay: 4000,
       disableOnInteraction: true,
       pauseOnMouseEnter: true
     },
   };
 
   pizze: Pizza[];
-  voti: Voto[]=[];
+  activePizza: Pizza;
+  activeInsalata: Insalatona;
   insalatone: Insalatona[];
   piattiErrMsg: string;
   url = `http://foodapi.test`;
@@ -48,6 +49,12 @@ export class HomePage implements OnInit, AfterContentChecked {
       insalatone => this.insalatone = insalatone,
       errMsg => this.piattiErrMsg = errMsg
     );
+  }
+  setActivePizza(pizza: Pizza) {
+    this.activePizza = pizza;
+  }
+  setActiveInsalata(insalata: Insalatona) {
+    this.activeInsalata = insalata;
   }
   ngOnInit(): void {
     this.getPizza();

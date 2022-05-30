@@ -22,6 +22,18 @@ const routes: Routes = [
   {
     path: 'commenti',
     loadChildren: () => import('./commenti/commenti.module').then( m => m.CommentiPageModule)
+  },
+  {
+    path: 'pizze/commenti/:id',
+    loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then( m => m.DettagliocommentiPageModule)
+  },
+  {
+    path: 'insalatone/commenti/:id',
+    loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+  },
+  {
+    path: 'home/commenti/:id',
+    loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
   }
 ];
 @NgModule({

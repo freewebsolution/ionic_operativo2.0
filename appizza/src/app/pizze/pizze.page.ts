@@ -10,6 +10,7 @@ import { PizzaService } from './../services/pizza.service';
 export class PizzePage implements OnInit {
   pizze: Pizza[];
   piattiErrMsg: string;
+  url = `http://foodapi.test`;
   constructor(private pizzaService: PizzaService) { }
   getPizza() {
     this.pizzaService.getPizze().subscribe(

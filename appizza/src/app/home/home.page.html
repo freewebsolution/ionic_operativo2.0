@@ -51,7 +51,7 @@
                                 </div>
                             </ion-col>
                             <ion-col size="4">
-                                <div *ngFor="let count of pizza.comments; let i = index;let last = last">
+                                <div *ngFor="let count of pizza.comments; let i = index;let last = last" [routerLink]="'commenti/'+pizza.slug" tappable>
                                     <p *ngIf="last">
                                         <ion-button color="success">
                                             <ion-icon name="chatbox-outline"></ion-icon> {{i+1}}
@@ -61,7 +61,7 @@
                             </ion-col>
                             <ion-col size="4">
                                 <p>
-                                    <ion-button color="danger">
+                                    <ion-button color="light" (click)="setActivePizza(pizza)" [ngClass]="{'danger': pizza.id === activePizza?.id}">
                                         <ion-icon name="heart"></ion-icon>
                                     </ion-button>
                                 </p>
@@ -86,7 +86,7 @@
                                 </div>
                             </ion-col>
                             <ion-col size="4">
-                                <div *ngFor="let count of insalata.comments; let i = index;let last = last">
+                                <div *ngFor="let count of insalata.comments; let i = index;let last = last" [routerLink]="'commenti/'+insalata.slug" tappable>
                                     <p *ngIf="last">
                                         <ion-button color="success">
                                             <ion-icon name="chatbox-outline"></ion-icon> {{i+1}}</ion-button>
@@ -95,7 +95,7 @@
                             </ion-col>
                             <ion-col size="4">
                                 <p>
-                                    <ion-button color="danger">
+                                    <ion-button color="light" (click)="setActiveInsalata(insalata)" [ngClass]="{'active': insalata.id === activeInsalata?.id}">
                                         <ion-icon name="heart"></ion-icon>
                                     </ion-button>
                                 </p>

@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="pizze" style="color: white;"></ion-back-button>
+        </ion-buttons>
+        <div class="ion-text-justify">
+            Commenti
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+    <div class="ion-padding">
+        <ion-text color="dark" class="ion-text-center commenti">
+            <div *ngFor="let count of commenti; let i = index;let last = last">
+                <p class="linee" *ngIf="last">{{i+1}} Commenti</p>
+            </div>
+        </ion-text>
+        <ion-item-group *ngFor="let commento of commenti">
+            <ion-item-divider>
+                <ion-label>
+                    <h2><i *ngIf="commento?.insalatona" class="fa-solid fa-carrot"></i>{{commento.insalatona?.titolo}}</h2>
+                    <h2>
+                        <ion-icon *ngIf="commento?.pizza" name="pizza-outline"></ion-icon>{{commento.pizza?.titolo}}
+                    </h2>
+                    <i *ngFor="let star of [1,2,3,4,5];let i = index" class=" fa-star gold" [ngClass]="{
+                      'fa-solid': i < commento.voti.rate,
+                      'fa-regular': i >= commento.voti.rate
+                    }">
+          </i>
+                    <br>
+                    <p>{{commento.testo}}</p>
+                    <br>
+                    <h5>
+                        <ion-icon name="person-outline"> </ion-icon>{{commento.user.name}} --
+                        <ion-icon name="calendar-outline"></ion-icon> {{commento.created_at | date: 'dd/MM/yy'}}
+                    </h5>
+                </ion-label>
+            </ion-item-divider>
+        </ion-item-group>
+        <div class="loader" [hidden]='commenti || errMsg'>
+            <div class="lds-hourglass"></div>
+        </div>
+    </div>
+</ion-content>

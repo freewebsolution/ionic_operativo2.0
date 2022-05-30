@@ -16,4 +16,8 @@ export class CommentiService {
     return this.http.get<Commento[]>(`${apiUrl}commenti`)
       .pipe(catchError(this.httpError.errorHandler));
   }
+  getCommentiId(id: string): Observable<Commento[]> {
+    return this.http.get<Commento[]>(`${apiUrl}commenti/${id}`)
+      .pipe(catchError(this.httpError.errorHandler));
+  }
 }

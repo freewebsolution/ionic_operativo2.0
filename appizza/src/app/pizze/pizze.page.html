@@ -9,14 +9,53 @@
     </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
-    <div class="ion-padding">
-        <div *ngIf="pizze">
-            <div *ngFor="let pizza of pizze">
-                {{pizza.titolo}}
-            </div>
-        </div>
-        <div [hidden]='pizze || piattiErrMsg'>
-            <div class="lds-hourglass"></div>
-        </div>
+    <ion-list>
+        <ion-text class="ion-text-center">
+            <h2 class="linee">Le nostre vegan Pizze</h2>
+        </ion-text>
+        <ion-item>
+            <ion-grid fixed>
+                <ion-row class="text-content">
+                    <ion-col size="12" size-lg="6" *ngFor="let pizza of pizze; let i = index;let last = last" class="border-col">
+                        <ion-text>
+                            <h2 class="title-text">{{pizza.titolo}}</h2>
+                        </ion-text>
+                        <h4 class="price-text-2">{{pizza.prezzo}} €</h4>
+                        <img class="imgList" [src]="url+pizza.img" />
+                        <p>{{(pizza.descrizione.length > 100) ? (pizza.descrizione | slice:0:100) + '...': pizza.descrizione }}</p>
+                        <ion-row class="ion-align-items-center">
+                            <ion-col size="4">
+                                <div *ngIf="pizza.voti">
+                                    <div>
+                                        <p>
+                                            <i class="fa-star gold fa-solid"></i> {{pizza.voti | sum:'rate' }} / 5.00
+                                        </p>
+                                    </div>
+                                </div>
+                            </ion-col>
+                            <ion-col size="4">
+                                <div *ngFor="let count of pizza.comments; let i = index;let last = last" [routerLink]="'commenti/'+pizza.slug" tappable>
+                                    <p *ngIf="last">
+                                        <ion-button color="success">
+                                            <ion-icon name="chatbox-outline"></ion-icon> {{i+1}}
+                                        </ion-button>
+                                    </p>
+                                </div>
+                            </ion-col>
+                            <ion-col size="4">
+                                <p>
+                                    <ion-button color="light" (click)="setActivePizza(pizza)" [ngClass]="{'danger': pizza.id === activePizza?.id}">
+                                        <ion-icon name="heart"></ion-icon>
+                                    </ion-button>
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+    <div [hidden]=' pizze || piattiErrMsg'>
+        <div class="lds-hourglass "></div>
     </div>
 </ion-content>

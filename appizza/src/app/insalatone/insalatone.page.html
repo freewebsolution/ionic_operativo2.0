@@ -4,19 +4,58 @@
             <ion-menu-button menu="sidemenu"></ion-menu-button>
         </ion-buttons>
         <div class="ion-text-center">
-            Insalatone
+            insalata
         </div>
     </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
-    <div class="ion-padding">
-        <div *ngIf="insalatone">
-            <div *ngFor="let insalatona of insalatone">
-                {{insalatona.titolo}}
-            </div>
-        </div>
-        <div [hidden]='insalatone || piattiErrMsg'>
-            <div class="lds-hourglass"></div>
-        </div>
+    <ion-list>
+        <ion-text class="ion-text-center">
+            <h2 class="linee">Le nostre insalatone</h2>
+        </ion-text>
+        <ion-item>
+            <ion-grid fixed>
+                <ion-row class="text-content">
+                    <ion-col size="12" size-lg="6" *ngFor="let insalata of insalatone; let i = index;let last = last" class="border-col">
+                        <ion-text>
+                            <h2 class="title-text">{{insalata.titolo}}</h2>
+                        </ion-text>
+                        <h4 class="price-text-2">{{insalata.prezzo}} €</h4>
+                        <img class="imgList" [src]="url+insalata.img" />
+                        <p>{{(insalata.descrizione.length > 100) ? (insalata.descrizione | slice:0:100) + '...': insalata.descrizione }}</p>
+                        <ion-row class="ion-align-items-center">
+                            <ion-col size="4">
+                                <div *ngIf="insalata.voti">
+                                    <div>
+                                        <p>
+                                            <i class="fa-star gold fa-solid"></i> {{insalata.voti | sum:'rate' }} / 5.00
+                                        </p>
+                                    </div>
+                                </div>
+                            </ion-col>
+                            <ion-col size="4">
+                                <div *ngFor="let count of insalata.comments; let i = index;let last = last" [routerLink]="'commenti/'+insalata.slug" tappable>
+                                    <p *ngIf="last">
+                                        <ion-button color="success">
+                                            <ion-icon name="chatbox-outline"></ion-icon> {{i+1}}
+                                        </ion-button>
+                                    </p>
+                                </div>
+                            </ion-col>
+                            <ion-col size="4">
+                                <p>
+                                    <ion-button color="light" (click)="setActiveinsalata(insalata)" [ngClass]="{'danger': insalata.id === activeinsalata?.id}">
+                                        <ion-icon name="heart"></ion-icon>
+                                    </ion-button>
+                                </p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+    <div [hidden]='insalatone || piattiErrMsg'>
+        <div class="lds-hourglass "></div>
     </div>
 </ion-content>

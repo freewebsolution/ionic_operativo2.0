@@ -39,6 +39,10 @@ ion-menu-button {
     color: red;
 }
 
+.select {
+    --ion-color-danger: #ff4961;
+}
+
 
 /*LOADER*/
 
@@ -65,7 +69,8 @@ ion-menu-button {
 
 /*LOGO*/
 
-.ion-text-center {
+.ion-text-center,
+.ion-text-justify {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.5rem;
     color: #f6f5f8;

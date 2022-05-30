@@ -10,6 +10,7 @@ import { InsalatonaService } from './../services/insalatona.service';
 export class InsalatonePage implements OnInit {
   insalatone: Insalatona[];
   piattiErrMsg: string;
+  url = `http://foodapi.test`;
   constructor(private insalatoneService: InsalatonaService) { }
   getInsalatone() {
     this.insalatoneService.getInsalatone().subscribe(

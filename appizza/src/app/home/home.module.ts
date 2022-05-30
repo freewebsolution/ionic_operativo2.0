@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { SwiperModule } from 'swiper/angular';
-import { SumPipe } from '../shared/pipe/sum.pipe';
+import { SharedModule } from '../shared/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,11 +13,9 @@ import { SumPipe } from '../shared/pipe/sum.pipe';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    SwiperModule
+    SwiperModule,
+    SharedModule
   ],
-  declarations: [HomePage, SumPipe],
-  exports: [
-    SumPipe
-  ]
+  declarations: [HomePage],
 })
 export class HomePageModule {}

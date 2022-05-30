@@ -1,0 +1,50 @@
+.title-text {
+    position: absolute;
+    padding: 8px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2.3rem;
+    color: #f6f5f8;
+    top: 17px;
+    left: 50px;
+    background-color: red;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 45%;
+}
+
+.text-content {
+    font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+.price-text {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2.3rem;
+    color: #f6f5f8;
+    background-color: red;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 45%;
+}
+
+.price-text-2 {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 1.9rem;
+    color: #f6f5f8;
+    background-color: red;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 45%;
+}
+
+.imgList {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 270px;
+    max-height: 350px !important;
+}

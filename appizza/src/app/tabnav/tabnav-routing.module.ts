@@ -39,6 +39,18 @@ const routes: Routes = [
       {
         path: 'cart',
         loadChildren: () => import('./../cart/cart.module').then(m => m.CartPageModule)
+      },
+      {
+        path: 'pizze/commenti/:id',
+        loadChildren: () => import('./../commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+      },
+      {
+        path: 'insalatone/commenti/:id',
+        loadChildren: () => import('./../commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+      },
+      {
+        path: 'home/commenti/:id',
+        loadChildren: () => import('./../commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
       }
 
     ]
