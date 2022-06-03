@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DettagliopizzePageRoutingModule } from './dettagliopizze-routing.module';
 
 import { DettagliopizzePage } from './dettagliopizze.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DettagliopizzePageRoutingModule
+    DettagliopizzePageRoutingModule,
+    SharedModule
   ],
   declarations: [DettagliopizzePage]
 })

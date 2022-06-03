@@ -21,11 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'commenti',
-    loadChildren: () => import('./commenti/commenti.module').then( m => m.CommentiPageModule)
+    loadChildren: () => import('./commenti/commenti.module').then(m => m.CommentiPageModule)
   },
   {
     path: 'pizze/commenti/:id',
-    loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then( m => m.DettagliocommentiPageModule)
+    loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
   },
   {
     path: 'insalatone/commenti/:id',
@@ -34,7 +34,47 @@ const routes: Routes = [
   {
     path: 'home/commenti/:id',
     loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+  },
+  {
+    path: 'home/pizza/:id',
+    loadChildren: () => import('./pizze/dettagliopizze/dettagliopizze.module').then(m => m.DettagliopizzePageModule)
+  },
+  {
+    path: 'home/pizza/:id/commenti/:id',
+    loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+  },
+  {
+    path: 'pizze/pizza/:id/commenti/:id',
+    loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+  },
+  {
+    path: 'home/insalatona/:id/commenti/:id',
+    loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+  },
+  {
+    path: 'insalatone/insalatona/:id/commenti/:id',
+    loadChildren: () => import('./commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+  },
+  {
+    path: 'pizza/:id',
+    loadChildren: () => import('./pizze/dettagliopizze/dettagliopizze.module').then(m => m.DettagliopizzePageModule)
+  }, {
+    path: 'pizze/pizza/:id',
+    loadChildren: () => import('./pizze/dettagliopizze/dettagliopizze.module').then(m => m.DettagliopizzePageModule)
+  },
+  {
+    path: 'home/insalatona/:id',
+    loadChildren: () => import('./insalatone/dettaglioinsalatone/dettaglioinsalatone.module').then(m => m.DettaglioinsalatonePageModule)
+  },
+  {
+    path: 'insalatona/:id',
+    loadChildren: () => import('./insalatone/dettaglioinsalatone/dettaglioinsalatone.module').then(m => m.DettaglioinsalatonePageModule)
+  },
+  {
+    path: 'insalatone/insalatona/:id',
+    loadChildren: () => import('./insalatone/dettaglioinsalatone/dettaglioinsalatone.module').then(m => m.DettaglioinsalatonePageModule)
   }
+
 ];
 @NgModule({
   imports: [
@@ -42,4 +82,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -15,4 +15,8 @@ export class InsalatonaService {
     return this.http.get<Insalatona[]>(`${apiUrl}insalatone`)
       .pipe(catchError(this.httpError.errorHandler));
   }
+  getInsalataId(id: number): Observable<Insalatona> {
+    return this.http.get<Insalatona>(`${apiUrl}insalatone/${id}`)
+      .pipe(catchError(this.httpError.errorHandler));
+  }
 }

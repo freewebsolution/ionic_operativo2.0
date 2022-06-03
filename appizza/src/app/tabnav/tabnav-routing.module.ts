@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -45,13 +46,41 @@ const routes: Routes = [
         loadChildren: () => import('./../commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
       },
       {
-        path: 'insalatone/commenti/:id',
+        path: 'home/pizza/:id/commenti/:id',
+        loadChildren: () => import('./../commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+      },
+      {
+        path: 'pizze/pizza/:id/commenti/:id',
+        loadChildren: () => import('./../commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+      },
+      {
+        path: 'home/insalatona/:id/commenti/:id',
+        loadChildren: () => import('./../commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
+      },
+      {
+        path: 'insalatone/insalatona/:id/commenti/:id',
         loadChildren: () => import('./../commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
       },
       {
         path: 'home/commenti/:id',
         loadChildren: () => import('./../commenti/dettagliocommenti/dettagliocommenti.module').then(m => m.DettagliocommentiPageModule)
-      }
+      },
+      {
+        path: 'home/pizza/:id',
+        loadChildren: () => import('./../pizze/dettagliopizze/dettagliopizze.module').then(m => m.DettagliopizzePageModule)
+      },
+      {
+        path: 'pizze/pizza/:id',
+        loadChildren: () => import('./../pizze/dettagliopizze/dettagliopizze.module').then(m => m.DettagliopizzePageModule)
+      },
+      {
+        path: 'home/insalatona/:id',
+        loadChildren: () => import('./../insalatone/dettaglioinsalatone/dettaglioinsalatone.module').then(m => m.DettaglioinsalatonePageModule)
+      },
+      {
+        path: 'insalatone/insalatona/:id',
+        loadChildren: () => import('./../insalatone/dettaglioinsalatone/dettaglioinsalatone.module').then(m => m.DettaglioinsalatonePageModule)
+      },
 
     ]
   },
@@ -62,4 +91,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TabnavPageRoutingModule {}
+export class TabnavPageRoutingModule { }

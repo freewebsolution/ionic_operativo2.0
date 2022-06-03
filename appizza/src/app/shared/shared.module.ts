@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SumPipe } from '../pipe/sum.pipe';
+import { SumPipe } from './pipe/sum.pipe';
 
 
 const items = [

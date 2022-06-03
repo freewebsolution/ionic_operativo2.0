@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { InsalatonePageRoutingModule } from './insalatone-routing.module';
 
 import { InsalatonePage } from './insalatone.page';
-import { SharedModule } from '../shared/shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
   imports: [
   CommonModule,

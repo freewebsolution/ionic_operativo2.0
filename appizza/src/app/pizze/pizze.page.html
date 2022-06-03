@@ -21,7 +21,7 @@
                             <h2 class="title-text">{{pizza.titolo}}</h2>
                         </ion-text>
                         <h4 class="price-text-2">{{pizza.prezzo}} €</h4>
-                        <img class="imgList" [src]="url+pizza.img" />
+                        <img class="imgList" [src]="url+pizza.img" [routerLink]="'pizza/'+pizza.id" tappable />
                         <p>{{(pizza.descrizione.length > 100) ? (pizza.descrizione | slice:0:100) + '...': pizza.descrizione }}</p>
                         <ion-row class="ion-align-items-center">
                             <ion-col size="4">
