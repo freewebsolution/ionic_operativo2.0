@@ -16,6 +16,6 @@ export class CommentiformPage implements OnInit {
     this.modalController.dismiss({nome:'Lucio'});
   }
   onSubmit(form) {
-
+    this.modalController.dismiss(form.value);
   }
 }

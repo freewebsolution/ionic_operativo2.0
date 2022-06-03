@@ -10,19 +10,22 @@
 <ion-content>
     <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <ion-item>
-            <ion-label>Autore</ion-label>
-            <ion-input type="text" placeholder="Autore"></ion-input>
+            <ion-label position="floating">Autore</ion-label>
+            <ion-input type="text" placeholder="Il tuo nome" name="autore" ngModel required></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label>Gradimento</ion-label>
+            <ion-label position="floating">Vota da 1 a 5</ion-label>
+            <ion-range name="rate" min="1" max="5" pin="true" snaps="true" step="1" color="medium" ngModel required>
+            </ion-range>
         </ion-item>
         <ion-item>
-            <ion-label>Commento</ion-label>
+            <ion-label position="floating">Commento</ion-label>
+            <ion-textarea placeholder="Commenta" name="commento " ngModel required></ion-textarea>
         </ion-item>
         <br>
-        <ion-button size="large" color="light" type="submit" [disabled]="form.invalid" expand="block">
+        <ion-button size="large " color="light " type="submit " [disabled]="form.invalid " expand="block ">
             Send
-            <ion-icon name="send-sharp"></ion-icon>
+            <ion-icon name="send-sharp "></ion-icon>
         </ion-button>
     </form>
 </ion-content>
