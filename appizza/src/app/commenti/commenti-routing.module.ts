@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: CommentiPage
+  },
+  {
+    path: 'commentiform',
+    loadChildren: () => import('./commentiform/commentiform.module').then( m => m.CommentiformPageModule)
   }
 ];
 

@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, ModalController } from '@ionic/angular';
 import { Commento } from 'src/app/models/commento';
 import { Pizza } from 'src/app/models/pizza';
 import { PizzaService } from 'src/app/services/pizza.service';
+import { CommentiformPage } from './../../commenti/commentiform/commentiform.page';
 @Component({
   selector: 'app-dettagliopizze',
   templateUrl: './dettagliopizze.page.html',
   styleUrls: ['./dettagliopizze.page.scss'],
 })
 export class DettagliopizzePage implements OnInit {
+  @Input()titolo: string;
   pizza: Pizza;
   errMsg: string;
   starRating = 0;
@@ -20,7 +22,8 @@ export class DettagliopizzePage implements OnInit {
   constructor(
     private pizzaService: PizzaService,
     private route: ActivatedRoute,
-    private asc: ActionSheetController
+    private asc: ActionSheetController,
+    private modalController: ModalController
   ) { }
 
   getPizza() {
@@ -43,7 +46,7 @@ export class DettagliopizzePage implements OnInit {
         text: 'Commenta',
         icon: 'send',
         handler: () => {
-          console.log('Comment clicked');
+          this.showModal();
         }
       }, {
         text: 'Imposta preferito',
@@ -54,5 +57,16 @@ export class DettagliopizzePage implements OnInit {
       }]
     });
     await actionSheet.present();
+  }
+  async showModal() {
+    const modal = await this.modalController.create({
+    component: CommentiformPage,
+    componentProps: { titolo: this.pizza.titolo }
+    });
+
+    await modal.present();
+    const {data}= await modal.onDidDismiss();
+    console.log('Dati passati in fase di chiusura '+ JSON.stringify(data));
+
   }
 }

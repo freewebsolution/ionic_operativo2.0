@@ -8,11 +8,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './shared/nav/nav.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-
+import { CommentiformPage } from './commenti/commentiform/commentiform.page';
 @NgModule({
-  declarations: [AppComponent, NavComponent,ToolbarComponent],
-  entryComponents: [],
+  declarations: [AppComponent, NavComponent, ToolbarComponent, CommentiformPage],
+  entryComponents: [CommentiformPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],
+
 providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
