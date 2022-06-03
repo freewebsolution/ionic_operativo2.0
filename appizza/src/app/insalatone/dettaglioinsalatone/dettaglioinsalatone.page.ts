@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ActionSheetController } from '@ionic/angular';
 import { InsalatonaService } from 'src/app/services/insalatona.service';
 import { Insalatona } from './../../models/insalatona';
 
@@ -15,7 +16,10 @@ export class DettaglioinsalatonePage implements OnInit {
   idInsalata: number;
   piattiErrMsg: string;
   url = `http://foodapi.test`;
-  constructor(private insalataService: InsalatonaService, private route: ActivatedRoute) { }
+  constructor(private insalataService: InsalatonaService,
+    private route: ActivatedRoute,
+    private asc: ActionSheetController
+  ) { }
 
   getInsalatona() {
     this.idInsalata = this.route.snapshot.params.id;
@@ -29,5 +33,24 @@ export class DettaglioinsalatonePage implements OnInit {
   ngOnInit(): void {
     this.getInsalatona();
 
+  }
+  async showActionSheet() {
+    const actionSheet = await this.asc.create({
+      header: 'Seleziona...',
+      buttons: [{
+        text: 'Commenta',
+        icon: 'send',
+        handler: () => {
+          console.log('Comment clicked');
+        }
+      }, {
+        text: 'Imposta preferito',
+        icon: 'heart',
+        handler: () => {
+          console.log('preferito clicked');
+        }
+      }]
+    });
+    await actionSheet.present();
   }
 }

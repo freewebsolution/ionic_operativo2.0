@@ -3,6 +3,9 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref="home" style="color: white;"></ion-back-button>
         </ion-buttons>
+        <ion-button icon-only slot="end" (click)="showActionSheet()" expand="block" fill="clear" shape="round">
+            <ion-icon name="ellipsis-vertical-outline" style="color: white;"></ion-icon>
+        </ion-button>
         <div class="ion-text-justify">
             {{insalata.titolo}}
         </div>
