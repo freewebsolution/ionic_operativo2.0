@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, ModalController } from '@ionic/angular';
+import { CommentiformPage } from 'src/app/commenti/commentiform/commentiform.page';
 import { InsalatonaService } from 'src/app/services/insalatona.service';
 import { Insalatona } from './../../models/insalatona';
 
@@ -18,7 +19,8 @@ export class DettaglioinsalatonePage implements OnInit {
   url = `http://foodapi.test`;
   constructor(private insalataService: InsalatonaService,
     private route: ActivatedRoute,
-    private asc: ActionSheetController
+    private asc: ActionSheetController,
+    private modalController: ModalController
   ) { }
 
   getInsalatona() {
@@ -41,7 +43,7 @@ export class DettaglioinsalatonePage implements OnInit {
         text: 'Commenta',
         icon: 'send',
         handler: () => {
-          console.log('Comment clicked');
+          this.showModal();
         }
       }, {
         text: 'Imposta preferito',
@@ -52,5 +54,16 @@ export class DettaglioinsalatonePage implements OnInit {
       }]
     });
     await actionSheet.present();
+  }
+  async showModal() {
+    const modal = await this.modalController.create({
+      component: CommentiformPage,
+      componentProps: { titolo: this.insalata.titolo }
+    });
+
+    await modal.present();
+    const { data } = await modal.onDidDismiss();
+    console.log('Dati passati in fase di chiusura ' + JSON.stringify(data));
+
   }
 }
