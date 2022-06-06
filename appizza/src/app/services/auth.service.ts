@@ -2,28 +2,34 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Auth } from '../models/auth';
 import { Router } from '@angular/router';
+import { User } from '../models/user';
+import { Observable } from 'rxjs';
 
-const $url = 'http://foodapi.test/api/auth/login';
+const url = 'http://foodapi.test/api/auth/';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  data: Auth;
-  constructor(private http: HttpClient,
-              private router: Router
+
+  constructor(
+    private http: HttpClient,
+    private router: Router
   ) { }
-  login(email, psw) {
-    const params = new HttpParams()
-      .set('email', email)
-      .set('psw', psw);
-    this.http.get<Auth>(`${$url}`, { params })
-      .subscribe(res => {
-        this.data = res;
-        this.router.navigateByUrl('home');
-      });
+  login(user: User): Observable<any> {
+    return this.http.post(`${url}/login`,user);
+  }
+  register(user: User): Observable<any> {
+    return this.http.post(`${url}/register`, user);
+  }
+  profileUser(user: User): Observable<any> {
+    return this.http.post(`${url}/profile-user`, user);
   }
   logout() {
-    this.data = null;
-    this.router.navigateByUrl('login');
+
+  }
+  isLogged() {
+    // const isAuth = this.data && this.data.access_token ? true : false;
+    // return isAuth;
   }
 }
