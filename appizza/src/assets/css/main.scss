@@ -202,6 +202,16 @@ h2.linee::after {
     max-height: 350px !important;
 }
 
+textarea,
+.sc-ion-input-md-h,
+input {
+    background: none !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
 @keyframes lds-hourglass {
     0% {
         transform: rotate(0);

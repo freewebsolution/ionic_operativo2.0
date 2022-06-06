@@ -1,9 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-button icon-only slot="end" expand="block" fill="clear" shape="round">
+            <ion-icon name="close-outline" style="color: white;"></ion-icon>
+        </ion-button>
+        <ion-title style="color: white;">
+            <ion-icon name="log-out-outline"></ion-icon> Sign Up
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <form #f="ngForm" class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input placeholder="your name" type="text" class="form-control" formControlName="name" required autocomplete="off"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Email address</ion-label>
+            <ion-input placeholder="Your email" type="email" class="form-control" formControlName="email" required autocomplete="off"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input placeholder="Your password" type="password" class="form-control" formControlName="password" required autocomplete="off"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Confirm Password</ion-label>
+            <ion-input placeholder="Confirm password" type="password" class="form-control" formControlName="password_confirmation" required autocomplete="off"></ion-input>
+        </ion-item>
+        <ion-button size="large " color="light " type="submit " [disabled]="f.invalid " expand="block ">
+            Register
+            <ion-icon name="send-sharp "></ion-icon>
+        </ion-button>
+    </form>
 </ion-content>

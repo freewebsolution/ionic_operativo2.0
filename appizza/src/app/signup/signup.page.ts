@@ -1,4 +1,8 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -6,10 +10,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  registerForm: FormGroup;
+  errors: any = null;
+  constructor(
+    public router: Router,
+    public fb: FormBuilder,
+    public authService: AuthService
+  ) {
+    this.registerForm = this.fb.group({
+      name: [''],
+      email: [''],
+      password: [''],
+      password_confirmation: [''],
+    });
+  }
+  ngOnInit() { }
+  onSubmit() {
+    this.authService.register(this.registerForm.value).subscribe(
+      (result) => {
+        console.log(result);
+      },
+      (error) => {
+        this.errors = error.error;
+      },
+      () => {
+        this.registerForm.reset();
+        this.router.navigate(['login']);
+      }
+    );
   }
 
 }

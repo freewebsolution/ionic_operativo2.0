@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 
-const url = 'http://foodapi.test/api/auth/';
+const url = 'http://foodapi.test/api/auth';
 
 @Injectable({
   providedIn: 'root'
