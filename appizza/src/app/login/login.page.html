@@ -9,17 +9,17 @@
 </ion-header>
 
 <ion-content>
-    <form #f="ngForm" (submit)="auth.login(f.value)">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <ion-item>
             <ion-label position="floating">Email</ion-label>
-            <ion-input type="text" placeholder="Your email" name="email" [ngModel] required></ion-input>
+            <ion-input type="text" placeholder="Your email" name="email" formControlName='email' required></ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating">Password</ion-label>
-            <ion-input type="password" placeholder="Your password" name="password" [ngModel] required></ion-input>
+            <ion-input type="password" placeholder="Your password" name="password" formControlName='password' required></ion-input>
         </ion-item>
         <br>
-        <ion-button size="large " color="light " type="submit " [disabled]="f.invalid " expand="block ">
+        <ion-button size="large " color="light " type="submit " [disabled]="!loginForm.valid" expand="block ">
             Login
             <ion-icon name="send-sharp "></ion-icon>
         </ion-button>

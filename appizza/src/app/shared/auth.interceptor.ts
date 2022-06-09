@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpRequest, HttpHandler, HttpInterceptor, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { TokenService } from '../services/token.service';
 
 @Injectable()
