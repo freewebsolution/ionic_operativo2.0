@@ -10,24 +10,47 @@
 </ion-header>
 
 <ion-content>
-    <form #f="ngForm" class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
         <ion-item>
             <ion-label position="floating">Name</ion-label>
             <ion-input placeholder="your name" type="text" class="form-control" formControlName="name" required autocomplete="off"></ion-input>
         </ion-item>
+        <ng-container *ngFor="let error of error_messages.name">
+            <div class="required ion-padding" *ngIf="registerForm.get('name').hasError(error.type) && (registerForm.get('name').dirty || registerForm.get('name').touched)">
+                {{ error.message }}
+            </div>
+        </ng-container>
         <ion-item>
             <ion-label position="floating">Email address</ion-label>
             <ion-input placeholder="Your email" type="email" class="form-control" formControlName="email" required autocomplete="off"></ion-input>
         </ion-item>
+        <ng-container *ngFor="let error of error_messages.email">
+            <div class="required ion-padding" *ngIf="registerForm.get('email').hasError(error.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+                {{ error.message }}
+            </div>
+        </ng-container>
         <ion-item>
             <ion-label position="floating">Password</ion-label>
             <ion-input placeholder="Your password" type="password" class="form-control" formControlName="password" required autocomplete="off"></ion-input>
         </ion-item>
+        <ng-container *ngFor="let error of error_messages.password">
+            <div class="required ion-padding" *ngIf="registerForm.get('password').hasError(error.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+                {{ error.message }}
+            </div>
+        </ng-container>
         <ion-item>
             <ion-label position="floating">Confirm Password</ion-label>
             <ion-input placeholder="Confirm password" type="password" class="form-control" formControlName="password_confirmation" required autocomplete="off"></ion-input>
         </ion-item>
-        <ion-button size="large " color="light " type="submit " [disabled]="f.invalid " expand="block ">
+        <ng-container *ngFor="let error of error_messages.password_confirmation">
+            <div class="required ion-padding" *ngIf="registerForm.get('password_confirmation').hasError(error.type) && (registerForm.get('password_confirmation').dirty || registerForm.get('password_confirmation').touched)">
+                {{ error.message }}
+            </div>
+        </ng-container>
+        <div class="required ion-padding" *ngIf="!registerForm.get('password_confirmation').errors && registerForm.hasError('passwordNotMatch') && (registerForm.get('password_confirmation').dirty || registerForm.get('password_confirmation').touched)">
+            Password and Confirm Password fields should match
+        </div>
+        <ion-button size="large " color="light " type="submit " expand="block" [disabled]="!registerForm.valid">
             Register
             <ion-icon name="send-sharp "></ion-icon>
         </ion-button>
