@@ -10,6 +10,7 @@ import { NavComponent } from './shared/nav/nav.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { CommentiformPage } from './commenti/commentiform/commentiform.page';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { ErrorIntercept } from './shared/error.interceptor';
 @NgModule({
   declarations: [AppComponent, NavComponent, ToolbarComponent, CommentiformPage],
   entryComponents: [CommentiformPage],
@@ -25,6 +26,11 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorIntercept,
       multi: true
     }
   ],

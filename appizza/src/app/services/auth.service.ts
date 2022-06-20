@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../models/user';
@@ -14,7 +15,7 @@ export class AuthService {
     private http: HttpClient
   ) { }
   login(user: User): Observable<any> {
-    return this.http.post(`${url}/login`,user);
+    return this.http.post(`${url}/login`, user);
   }
   register(user: User): Observable<any> {
     return this.http.post(`${url}/register`, user);
@@ -22,6 +23,7 @@ export class AuthService {
   profileUser(): Observable<any> {
     return this.http.get(`${url}/user-profile`);
   }
+
   logout() {
 
   }

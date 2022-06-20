@@ -11,6 +11,7 @@ export class TokenService {
   constructor() { }
   handleData(token: any) {
     localStorage.setItem('auth_token', token);
+    setTimeout(this.removeToken, 1000 * 60 * 60);
   }
   getToken() {
     return localStorage.getItem('auth_token');
