@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Auth } from '../models/auth';
-import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { Observable } from 'rxjs';
 
@@ -13,8 +11,7 @@ const url = 'http://foodapi.test/api/auth';
 export class AuthService {
 
   constructor(
-    private http: HttpClient,
-    private router: Router
+    private http: HttpClient
   ) { }
   login(user: User): Observable<any> {
     return this.http.post(`${url}/login`,user);
@@ -27,9 +24,5 @@ export class AuthService {
   }
   logout() {
 
-  }
-  isLogged() {
-    // const isAuth = this.data && this.data.access_token ? true : false;
-    // return isAuth;
   }
 }
