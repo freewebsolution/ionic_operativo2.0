@@ -10,13 +10,15 @@ import { AuthService } from './../services/auth.service';
 })
 export class UserProfilePage implements OnInit {
   UserProfile!: User;
+  errMsg: string;
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
     this.authService.profileUser()
-    .subscribe((data: any)=>{
-      this.UserProfile = data;
-    });
+      .subscribe(
+        data => this.UserProfile = data,
+        errMsg => this.errMsg = errMsg
+      );
   }
 
 }

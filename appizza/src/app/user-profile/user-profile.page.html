@@ -19,5 +19,8 @@
                 Edit
             </ion-button>
         </ion-item>
+        <div class="loader" [hidden]='UserProfile|| errMsg'>
+            <div class="lds-hourglass"></div>
+        </div>
     </div>
 </ion-content>
