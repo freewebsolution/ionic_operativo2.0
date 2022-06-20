@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { AuthStateService } from 'src/app/services/auth-state.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -10,23 +11,29 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-
+  UserProfile!: User;
   isSignedIn!: boolean;
   constructor(
     private auth: AuthStateService,
     public router: Router,
-    public token: TokenService
+    public token: TokenService,
+    public authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.auth.userAuthState.subscribe((val) => {
       this.isSignedIn = val;
     });
-  }
+    this.authService.profileUser()
+      .subscribe((data: any) => {
+        this.UserProfile = data;
+      });
 
-  signOut() {
-    this.auth.setAuthState(false);
-    this.token.removeToken();
-    this.router.navigate(['login']);
-  }
+}
+
+signOut() {
+  this.auth.setAuthState(false);
+  this.token.removeToken();
+  this.router.navigate(['login']);
+}
 }

@@ -19,8 +19,8 @@ export class AuthService {
   register(user: User): Observable<any> {
     return this.http.post(`${url}/register`, user);
   }
-  profileUser(user: User): Observable<any> {
-    return this.http.post(`${url}/profile-user`, user);
+  profileUser(): Observable<any> {
+    return this.http.get(`${url}/user-profile`);
   }
   logout() {
 

@@ -1,0 +1,23 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-menu-button menu="sidemenu"></ion-menu-button>
+        </ion-buttons>
+        <div class="ion-text-center">
+            Profilo
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+    <div class="ion-padding">
+        <ion-item>
+            <ion-label>
+                <p>Nome: <strong>{{UserProfile?.name}}</strong></p>
+                <p>Email: <strong>{{UserProfile?.email}}</strong></p>
+            </ion-label>
+            <ion-button expand="block" color="medium">
+                Edit
+            </ion-button>
+        </ion-item>
+    </div>
+</ion-content>

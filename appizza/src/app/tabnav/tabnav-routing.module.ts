@@ -81,6 +81,10 @@ const routes: Routes = [
         path: 'insalatone/insalatona/:id',
         loadChildren: () => import('./../insalatone/dettaglioinsalatone/dettaglioinsalatone.module').then(m => m.DettaglioinsalatonePageModule)
       },
+      {
+        path: 'profilo',
+        loadChildren: () => import('./../user-profile/user-profile.module').then(m => m.UserProfilePageModule)
+      }
 
     ]
   },

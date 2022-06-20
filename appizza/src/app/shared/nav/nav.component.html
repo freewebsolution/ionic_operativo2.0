@@ -6,8 +6,8 @@
                     <a *ngIf="!isSignedIn" style="color: #f6f5f8;" routerLink="/login">
                         <ion-icon name="log-out-outline"></ion-icon>Sign in
                     </a>
-                    <ion-text style="color: #f6f5f8;">
-                        <p> Hello love!</p>
+                    <ion-text style="color: #f6f5f8;" *ngIf="isSignedIn">
+                        <p>Hello {{UserProfile?.name}}</p>
                     </ion-text>
                 </ion-menu-toggle>
             </ion-title>
