@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
@@ -21,13 +22,17 @@ export class NavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.auth.userAuthState.subscribe((val) => {
-      this.isSignedIn = val;
-    });
-    this.authService.profileUser()
-      .subscribe((data: any) => {
-        this.UserProfile = data;
+    if (this.auth.userAuthState){
+      this.auth.userAuthState.subscribe((val) => {
+        this.isSignedIn = val;
       });
+    }
+    if (this.authService.profileUser()){
+      this.authService.profileUser()
+        .subscribe((data: any) => {
+          this.UserProfile = data;
+        });
+    }
 
 }
 
