@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 import { CommentiformPage } from './commentiform.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CommentiformPage
+    component: CommentiformPage,
+    canActivate: [AuthGuard]
   }
 ];
 

@@ -11,6 +11,7 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { CommentiformPage } from './commenti/commentiform/commentiform.page';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { ErrorIntercept } from './shared/error.interceptor';
+import { AuthGuard } from './auth/auth.guard';
 @NgModule({
   declarations: [AppComponent, NavComponent, ToolbarComponent, CommentiformPage],
   entryComponents: [CommentiformPage],

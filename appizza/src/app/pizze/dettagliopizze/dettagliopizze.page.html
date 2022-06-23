@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
             <ion-back-button defaultHref="/home" style="color: white;"></ion-back-button>
         </ion-buttons>
-        <ion-button icon-only slot="end" (click)="showActionSheet()" expand="block" fill="clear" shape="round">
+        <ion-button *ngIf="isSignedIn" icon-only slot="end" (click)="showActionSheet()" expand="block" fill="clear" shape="round">
             <ion-icon name="ellipsis-vertical-outline" style="color: white;"></ion-icon>
         </ion-button>
         <div class="ion-text-justify">
@@ -47,8 +47,13 @@
                                 </div>
                             </ion-col>
                             <ion-col size="4">
-                                <p>
+                                <p *ngIf="isSignedIn">
                                     <ion-button color="light" (click)="setActivePizza(pizza)" [ngClass]="{'danger': pizza.id === activePizza?.id}">
+                                        <ion-icon name="heart"></ion-icon>
+                                    </ion-button>
+                                </p>
+                                <p *ngIf="!isSignedIn">
+                                    <ion-button color="light" (click)="alertLogin()">
                                         <ion-icon name="heart"></ion-icon>
                                     </ion-button>
                                 </p>
@@ -56,9 +61,13 @@
                         </ion-row>
                     </ion-col>
                 </ion-row>
-                <ion-button expand="block" color="light">
+                <ion-button expand="block " *ngIf="isSignedIn " color="light ">
                     + Add to cart
-                    <ion-icon name="cart-outline"></ion-icon>
+                    <ion-icon name="cart-outline "></ion-icon>
+                </ion-button>
+                <ion-button expand="block " *ngIf="!isSignedIn " (click)="alertLogin() " color="light ">
+                    + Add to cart
+                    <ion-icon name="cart-outline "></ion-icon>
                 </ion-button>
             </ion-grid>
         </ion-item>

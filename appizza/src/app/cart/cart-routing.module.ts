@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../auth/auth.guard';
 
 import { CartPage } from './cart.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CartPage
+    component: CartPage,
+    canActivate: [AuthGuard]
   }
 ];
 
