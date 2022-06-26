@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+/* eslint-disable @typescript-eslint/member-ordering */
+import { HostListener, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ export class TokenService {
     login: 'http://foodapi.test/api/auth/login',
     register: 'http://foodapi.test/api/auth/register'
   };
-  constructor() { }
+  constructor(private router: Router) { }
   handleData(token: any) {
     localStorage.setItem('auth_token', token);
     setTimeout(this.removeToken, 1000 * 60 * 60);
@@ -38,5 +40,13 @@ export class TokenService {
 
   removeToken() {
     localStorage.removeItem('auth_token');
+    location.reload();
+    this.router.navigate(['/home']);
+  }
+  @HostListener('document:keydown', ['$event'])
+  keydownHandler(event: KeyboardEvent): void {
+    if (event && event.ctrlKey && event.keyCode === 116) {
+      window.localStorage.clear();
+    }
   }
 }

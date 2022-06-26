@@ -27,13 +27,12 @@ export class NavComponent implements OnInit {
         this.isSignedIn = val;
       });
     }
-    if (this.authService.profileUser()){
+    if (this.token.isLoggedIn()){
       this.authService.profileUser()
         .subscribe((data: any) => {
           this.UserProfile = data;
         });
     }
-
 }
 
 signOut() {

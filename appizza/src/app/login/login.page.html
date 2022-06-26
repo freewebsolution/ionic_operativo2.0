@@ -7,8 +7,8 @@
             <ion-icon name="log-out-outline"></ion-icon> Sign In
         </ion-title>
     </ion-toolbar>
+    <ion-progress-bar [ngStyle]="styleCss" type="indeterminate" color="secondary"></ion-progress-bar>
 </ion-header>
-
 <ion-content>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <ion-item>

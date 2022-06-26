@@ -14,11 +14,12 @@ export class UserProfilePage implements OnInit {
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.profileUser()
-      .subscribe(
-        data => this.UserProfile = data,
-        errMsg => this.errMsg = errMsg
-      );
+      this.authService.profileUser()
+        .subscribe(
+          data => this.UserProfile = data,
+          errMsg => this.errMsg = errMsg
+        );
+
   }
 
 }
